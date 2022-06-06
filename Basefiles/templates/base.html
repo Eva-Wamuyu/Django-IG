@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"> 
+  {% load tailwind_tags %}
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS only -->
+
+
+
+  <script src="https://kit.fontawesome.com/9d6964b900.js" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  {% load static %}
+  {% comment %} <link rel="shortcut icon" href="{% static 'avatar.png'%}" type="image/x-icon"> {% endcomment %}
+  {% block styles %}
+  {% tailwind_css %}
+ <link rel="stylesheet" href="{% static 'styles.css'%}"> 
+
+
+  {% endblock %}
+
+
+
+  {% if title %}
+  <title>{{title}}</title>
+  {% else %}
+  <title> Instagram </title>
+  {% endif %}
+
+  
+  
+</head>
+<body>
+{% block nav %}
+
+  
+{% endblock nav %}
+
+
+    {% block content %}{% endblock %}
+
+
+
+  
+
+
+
+
+    <script src="{% static 'script.js'%}"> </script>
+</body>
+</html>
