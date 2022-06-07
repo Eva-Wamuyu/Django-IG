@@ -18,6 +18,7 @@ cd Django_IG
 python3 -m venv virtual
 . virtual/bin/activate
 pip install -r requirements.txt
+create a .env file and add MODE="development"
 ```
 
 ## Running Tests
