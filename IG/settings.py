@@ -98,6 +98,11 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': config('DATABASE'),
+            'USER': config('USER'),
+            'PASSWORD': config('DB_PWD'),
+            'HOST': config('HOST'),
+            'PORT': '5432',
         }
     }
 
