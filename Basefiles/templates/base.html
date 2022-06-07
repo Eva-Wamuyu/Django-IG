@@ -6,16 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- CSS only -->
-
-
+  {% load static %}
+  <link rel="shortcut icon" href="{% static 'icons8-instagram-48.png'%}" type="image/x-icon">
 
   <script src="https://kit.fontawesome.com/9d6964b900.js" crossorigin="anonymous"></script>
 
   <script src="https://cdn.tailwindcss.com"></script>
-  {% load static %}
+  
   {% comment %} <link rel="shortcut icon" href="{% static 'avatar.png'%}" type="image/x-icon"> {% endcomment %}
   {% block styles %}
   {% tailwind_css %}
+
  <link rel="stylesheet" href="{% static 'styles.css'%}"> 
 
 
@@ -34,8 +35,36 @@
 </head>
 <body>
 {% block nav %}
+<nav class="bg-slate-100 sticky h-12 pt-2 w-full mb-12 sticky top-0 ">
+  <ul class="flex  max-w-xs m-auto">
+    <li class="mr-3">
+      <a class="h2 inline-block py-1 text-black" href="{% url 'home' request.user %}">Instagram</a>
+    </li>
+    <li class="mr-3 dd">
+      <form method="get" action="{% url 'search'  %}" class="">
+        <input name="username" class="" type="search" placeholder="Search" aria-label="Search" required>
+        <button class="search" type="submit"><i class="fas fa-search"></i></button>
+      </form>
+    </li>
+
+    <li class="mr-3">
+      <a class="inline-block  py-1 px-3" href="{% url 'home' request.user %}"><i class="fa fa-home" aria-hidden="true"></i></a>
+    </li>
+    <li class="mr-3">
+      <a class="inline-block py-1 px-3" href="{% url 'acc' request.user %}" ><i class="fa fa-user" aria-hidden="true"></i>
+    </li>
+    <li class="mr-3">
+      <a class="inline-block py-1 px-3 " href="{% url 'edit' request.user %}"> <i class="fa fa-edit" aria-hidden="true"></i> </a>
+    </li>
+    <li class="mr-3">
+      <a class="inline-block py-1 px-3 " href={% url 'logout' %}><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+    </li>
+  </ul>
 
   
+</nav>
+
+
 {% endblock nav %}
 
 
