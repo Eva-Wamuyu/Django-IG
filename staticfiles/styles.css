@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+h2,.h2{
+  /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;*/
+  font-weight: 700;
+  font-size: 28px;
+  font-family: 'Dancing Script', cursive;
+}
+.dd{
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .dd{
+    display: block;
+  }
+
+  
+}
