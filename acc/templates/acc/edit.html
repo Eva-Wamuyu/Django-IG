@@ -2,17 +2,18 @@
 
 
 {% block content %}
+
+<div class="w-full w-1/2 m-auto border mt-24">
+
+<h2> Change settings </h2>
 <div class="w-full mt-24 m-auto max-w-xs">
-  <img src="user.profile.profile_photo.url" alt="profile">
+  <img src="{{user.profile.profile_photo.url}}" alt="profile">
 </div>
 <form method="post" class="" enctype="multipart/form-data" action="{% url 'edit' user %}">
    {% csrf_token %}
-
   {{form}}
-
   <button> Update </button>
 </form>
-
-
+</div>
 
 {% endblock %}

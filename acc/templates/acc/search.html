@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+
+
+{% block content %}
+  <ul>
+
+    {% for person in people %}
+    <li>
+        <a href="{% url 'acc' person %}">
+        <img class="w-12 h-12" src="{{person.profile.profile_photo.url}}">
+        <p> 
+            {{person.username}}
+        </p>
+        </a>
+    </li>
+{% endfor %}
+
+
+{% endblock content %}
