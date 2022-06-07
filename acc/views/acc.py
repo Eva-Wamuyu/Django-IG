@@ -59,11 +59,14 @@ class Login(views.View):
       return render(request,"registration/login.html",{"form":form})
 				
 		
-@decorators.login_required(login_url='login')
+@decorators.login_required(login_url='')
 def logsout(request):
+  
   logout(request)
-  messages.info(request,"Logged Out Successfully")
-  return redirect('login')
+  logout(request.user)
+  messages.info(request,"Logged Out Successfully")              
+  
+  return redirect(request,'login')
 
 
 
