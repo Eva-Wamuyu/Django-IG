@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{% block nav %}
+
+{% endblock%}
+
+{% block content %}
+
+<div class="w-full mt-24 m-auto max-w-xs">
+  <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+       <h2 class="text-center">Instagram Mutant</h2>
+  <form id="login" method="post" action={% url 'login'%} >
+    {% csrf_token %}
+    
+        <p> {{errors}} </p>
+    
+  {{form.username}}
+  {{form.password}}
+
+  <button class="bg-blue-400 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    Log In
+  </button>
+  </form>
+  <p>
+    Don't have an account? <a class="text-blue-400" href="{% url 'signup'%}">Sign up </a>
+  </p>
+
+</div>
+</div>
+
+
+{% endblock content %}
+
+
+
