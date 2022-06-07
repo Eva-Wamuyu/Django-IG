@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-v&t541%m9&ep389xan-bco%0_6-=(5g#l8*km&0rt%s^=#pcn='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
 
 ALLOWED_HOSTS = []
 
@@ -31,7 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'imgs',
+    'acc',
+    'tailwind',
+    'theme',
+    'django_browser_reload',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'IG.urls'
@@ -77,7 +81,7 @@ WSGI_APPLICATION = 'IG.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 if config('MODE') == 'development':
-    SECRET_KEY = 'django-insecure'
+    SECRET_KEY = 'django-insecure-v&t541%m9&ep389xan-bco%0_6-=(5g#l8*km&0rt%s^=#pcn='
     DEBUG = True
     DATABASES = {
     'default': {
@@ -139,3 +143,17 @@ TAILWIND_APP_NAME = 'theme'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+import os
+
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
