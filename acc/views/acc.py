@@ -52,10 +52,10 @@ class Login(views.View):
           return HttpResponseRedirect(reverse('home',kwargs={'username':username}))
         else:
           errors = "Invalid username or password."
-          
+          messages.error(request, messages.INFO, 'username or password is not known')
           form = AuthenticationForm()
           return render(request,"registration/login.html", {"form":form, 'errors':errors})
-    
+      messages.error(request, messages.INFO, 'username or password is not known')
       return render(request,"registration/login.html",{"form":form})
 				
 		
