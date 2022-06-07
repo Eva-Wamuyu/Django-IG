@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% if errror %}
+{{error}}
+{% endif %}
+
+<div class="text-center w-full m-auto lg:w-1/3">
+<div class="grid grid-cols-2">
+    <div>
+      <img class="" src="{{user.profile.profile_photo.url}}" alt="user">
+      <h3> {{user.username}}</h3> </h3>
+    </div>
+    <div>
+      <ul>
+        <li> {{user.profile.followers.count}} Followers </li>
+        <li> {{user.profile.following.count}} Following </li>
+      </ul>
+      <form action="{% url 'follow' user%}">
+        <button class="btn btn-primary"> Follow </button>
+      </form>
+    </div>
+  </div>
+    <hr>
+  {% if posts %}
+  <div class="grid grid-cols-2">
+    {% for post in posts %}
+      <div class="m-2">
+        <a href="{% url 'image' post.id%}">
+          <img class="m-2" src="{{post.img.url}}" alt="{{post.imgName}}">
+          <p class="text-center"> {{post.img_name}}  </p>
+        </a> 
+       </div>
+       {% endfor%}
+      
+    </div>
+    {% else %}
+    <p>
+      {{user.username}} has no posts
+    </p>
+    {% endif %}
+</div>
+
+
+
+{% endblock content %}
+
+
+
+
+
+

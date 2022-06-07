@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="w-full mt-24 m-auto max-w-xs">
+  <img src="user.profile.profile_photo.url" alt="profile">
+</div>
+<form method="post" class="" enctype="multipart/form-data" action="{% url 'edit' user %}">
+   {% csrf_token %}
+
+  {{form}}
+
+  <button> Update </button>
+</form>
+
+
+
+{% endblock %}

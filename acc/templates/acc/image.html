@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container w-1/2 mx-auto ">
+  <button class="my-6 bg-grey-400" onclick="history.back()">Go Back</button>
+  <div>
+  <img class="object-cover  h-48 w-96 mb-6" src="{{image.img.url}}">
+  <div>
+    <button onclick="add(image.likes)"> <i class="fa fa-heart" aria-hidden="true"></i> </button>
+    <span>  {{image.likes}} </span>
+    <form id="comment" method="post" class="mx-auto" action="{% url 'image' image.id %}">
+      {% csrf_token %}
+      {{form.comment}}
+      <button>
+         Comment
+      </button>
+    </form>
+  </div>
+  </div>
+  <div>
+    
+    {% for comment in comments %}
+    <div>
+      <a href="{% url 'acc' comment.get_profile %}">
+       <img class="w-12 h-12" src="{{comment.profile.profile_photo.url}}">
+       <span>
+         {{comment.get_profile}}
+       </span>
+    </a>
+      <p>
+          {{comment.comment}}
+      </p>
+      
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock content %}
+
+
+
+
