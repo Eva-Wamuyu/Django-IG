@@ -97,7 +97,7 @@ def follow(request,username):
 
   return HttpResponseRedirect(reverse('acc',kwargs={'username':user}))
 
-@login_required
+@login_required(login_url='')
 def image(request,id):
   form = PostComment()
   
@@ -128,7 +128,7 @@ def image(request,id):
     return render(request, 'acc/image.html',context=context)
   return render(request, 'acc/image.html',context=context)
 
-
+@login_required(login_url='')
 def search(request):
   if 'username' in request.GET and request.GET['username']:
     people = Profile.objects.filter(name__unaccent__icontains= request.GET.get('category'))

@@ -64,3 +64,10 @@ def logsout(request):
   logout(request)
   messages.info(request,"Logged Out Successfully")
   return redirect('login')
+
+
+
+@decorators.login_required(login_url='')
+def four_four(request,exception):
+  return render(request, 'registration/404.html')
+
