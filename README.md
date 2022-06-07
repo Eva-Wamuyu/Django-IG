@@ -1,4 +1,4 @@
-# # Django-IG
+# Django-IG
 
 ## By Eva Wamuyu
 

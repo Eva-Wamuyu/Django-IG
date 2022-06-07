@@ -145,6 +145,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS =[
     BASE_DIR/"Basefiles"/"Static",
+    
 ]
 
 TAILWIND_APP_NAME = 'theme'
@@ -156,9 +157,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
+# INTERNAL_IPS = [
+#     "127.0.0.1",
+# ]
 
 import os
 
@@ -168,7 +169,7 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 
 import dj_database_url
-
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 import django_heroku
 django_heroku.settings(locals())
