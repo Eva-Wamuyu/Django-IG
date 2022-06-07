@@ -10,9 +10,11 @@ class Profile(models.Model):
     
     def save_profile(self):
       self.save()
+    
 
-from .user import *
-from django.db import models
+    def search(self,x):
+      return Profile.objects.filter(name__unaccent__icontains=x)
+
 
 class Image(models.Model):
   img = models.ImageField(upload_to="images/")
